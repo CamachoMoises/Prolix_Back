@@ -29,8 +29,14 @@ exports.Authenticate = (req, res, next) => {
 			return res.status(400).json({ statusCode: 400, message: 'User not exist' });
 		}
         const data=results[0];
-        console.log('Results', data[0] );
-        return res.json(userl)
+        console.log('Resuls', data[0].NombreUsuario );
+        const userfl={
+            firstName:data[0].PrimerNombre,
+            lastName:data[0].PrimerApellido,
+            password:"secrect"   ,
+            token:"token"
+             }
+        return res.json(userfl)
 		// return res.status(200).send({
 		// 	success: 1,
 		// 	data: results
