@@ -40,15 +40,36 @@ Employees.list = (result) => {
     })
 };
 
-    Employees.delete=(data, result)=>{
-        sql.query('DELETE FROM empleado WHERE idEmpleado=?',[data],(err, res)=>{
-            if (err) {
-                console.log('error: ', err);
-                result(null, err);
-                return;
-            }
-            result(null, res);
-        })
-    }
+Employees.delete=(data, result)=>{
+	sql.query('DELETE FROM empleado WHERE idEmpleado=?',[data],(err, res)=>{
+		if (err) {
+			console.log('error: ', err);
+			result(null, err);
+			return;
+		}
+		result(null, res);
+	})
+};
+
+Employees.update=(data, result)=>{
+	sql.query('UPDATE empleado SET `img` = ? , `PrimerNombre` = ?, `SegundoNombre` = ? , `PrimerApellido` =  ?, `SegundoApellido` =  ?, `CorreoElectronico` =  ?, `genero` = ?, `nacimiento`=?, `direccion` = ?, `telefono` = ?,  `pais` = ? WHERE (`idEmpleado` = ?)',
+	[
+		data.img,
+		data.fName,
+        null,
+		data.lName,
+        null,
+		data.email,
+		data.gender,
+		data.bDate,
+		data.address,
+		data.mobile,
+		data.country,
+		data.id
+	],
+	 (err,res)=>{
+
+	 })
+}
 
 module.exports = Employees;

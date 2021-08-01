@@ -1,9 +1,10 @@
 const cors = require('cors');
 
-module.exports = (app)=>{
-    const Employee = require("../controller/employees");
+module.exports = (app) => {
+	const Employee = require('../controller/employees');
 	app.use(cors());
-    app.get("/employees", Employee.List);
-    app.post("/employee", Employee.add);
-    app.delete("/employee/:id", Employee.delete);
-}
+	app.get('/employees', Employee.List);
+	app.post('/employee', Employee.add);
+	app.delete('/employee/:id', Employee.delete);
+	app.put('/employee/:id', Employee.update);
+};

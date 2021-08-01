@@ -57,5 +57,27 @@ exports.delete = (req, res) => {
 			return res.status(400).json({ statusCode: 400, message: 'Error in the database' });
 		}
 	});
-    return res.status(200).json({ statusCode: 200, message: `data erase` });
+	return res.status(200).json({ statusCode: 200, message: `data erase` });
+};
+exports.update = (req, res) => {	
+	console.log('Update employee id:', req.params.id);
+	const data = {
+		img: req.body.img,
+		fName: req.body.fName,
+		email: req.body.email,
+		gender: req.body.gender,
+		bDate: req.body.bDate,
+		address: req.body.address,
+		mobile: req.body.mobile,
+		country: req.body.country,
+		lName: req.body.lName,
+		id: req.params.id
+	};
+	Employee.update(data, (err, res) => {
+		if (err) {
+			console.log('Error in the database');
+			return res.status(400).json({ statusCode: 400, message: 'Error in the database' });
+		}
+	});
+	return res.status(200).json({ statusCode: 200, message: `data saved` });
 };
