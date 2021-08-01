@@ -18,15 +18,18 @@ exports.Authenticate = (req, res, next) => {
 	};
 	User.Find(data, (error, results) => {
 		if (error) {
+			console.log('Error in the database');
 			return res.status(400).json({ statusCode: 400, message: 'Error in the database' });
 		}
-		if (results[0].length<1) {
+		if (results[0].length < 1) {
+			console.log('User not exist');
 			return res.status(400).json({ statusCode: 400, message: 'User not exist' });
 		}
 		console.log('userVerified');
-		
+
 		User.Autenticate(data, (error, results) => {
 			if (error) {
+				console.log('Error in the database');
 				return res.status(400).json({ statusCode: 400, message: 'Error in the database' });
 			}
 			const sqlRes = results[0];
@@ -44,8 +47,8 @@ exports.Authenticate = (req, res, next) => {
 			// 	data: results
 			//
 			// });
-			return res.status(400).json({ statusCode: 400, message: `the password does not match the User: ${data.user1}`});
+			console.log(`the password does not match the User: ${data.user1}`);
+			return res.status(400).json({ statusCode: 400, message: `the password does not match the User: ${data.user1}` });
 		});
 	});
-
 };

@@ -51,6 +51,7 @@ passport.deserializeUser(function (id, done) {
 	done(null, { id: 1, name: 'test@test.com' });
 });
 require('./route/user')(app);
+require('./route/employees')(app);
 
 // app.get(
 // 	'/',
