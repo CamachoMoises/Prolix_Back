@@ -32,13 +32,15 @@ exports.add = (req, res) => {
 	const data = {
 		img: req.body.img,
 		fName: req.body.fName,
+		sName: req.body.sName,
+		lName: req.body.lName,
+		sLName: req.body.sLName,
 		email: req.body.email,
 		gender: req.body.gender,
 		bDate: req.body.bDate,
 		address: req.body.address,
 		mobile: req.body.mobile,
 		country: req.body.country,
-		lName: req.body.lName,
 	};
 	Employee.add(data, (err, res) => {
 		if (err) {
@@ -64,13 +66,15 @@ exports.update = (req, res) => {
 	const data = {
 		img: req.body.img,
 		fName: req.body.fName,
+		sName: req.body.sName,
+		lName: req.body.lName,
+		sLName: req.body.sLName,
 		email: req.body.email,
 		gender: req.body.gender,
 		bDate: req.body.bDate,
 		address: req.body.address,
 		mobile: req.body.mobile,
 		country: req.body.country,
-		lName: req.body.lName,
 		id: req.params.id
 	};
 	Employee.update(data, (err, res) => {

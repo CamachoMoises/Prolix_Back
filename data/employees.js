@@ -21,9 +21,9 @@ Employees.list = (result) => {
     [
         data.img,
 		data.fName,
-        null,
+		data.sName,
 		data.lName,
-        null,
+		data.sLName,
 		data.email,
 		data.gender,
 		data.bDate,
@@ -56,9 +56,9 @@ Employees.update=(data, result)=>{
 	[
 		data.img,
 		data.fName,
-        null,
+        data.sName,
 		data.lName,
-        null,
+        data.sLName,
 		data.email,
 		data.gender,
 		data.bDate,
