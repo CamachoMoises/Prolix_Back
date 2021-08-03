@@ -17,15 +17,21 @@ Employees.list = (result) => {
 
  Employees.add=(data, result)=>{
      console.log(data);
-    sql.query('INSERT INTO empleado (`img`, `PrimerNombre`, `SegundoNombre`, `PrimerApellido`, `SegundoApellido`, `CorreoElectronico`,`genero`,`nacimiento`, `direccion`, `telefono`, `pais`) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
+    sql.query('INSERT INTO empleado (`img`,`img2`, `PrimerNombre`, `SegundoNombre`, `PrimerApellido`, `SegundoApellido`, `CorreoElectronico`,`genero`,`cargo`,`civil`,`cedula`,`extencion`,`sangre`,`nacimiento`, `direccion`, `telefono`, `pais`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
     [
         data.img,
+		data.img2,
 		data.fName,
 		data.sName,
 		data.lName,
 		data.sLName,
 		data.email,
 		data.gender,
+		data.position,
+		data.marital,
+		data.civ,
+		data.ext,
+		data.bloodType,
 		data.bDate,
 		data.address,
 		data.mobile,
@@ -52,15 +58,21 @@ Employees.delete=(data, result)=>{
 };
 
 Employees.update=(data, result)=>{
-	sql.query('UPDATE empleado SET `img` = ? , `PrimerNombre` = ?, `SegundoNombre` = ? , `PrimerApellido` =  ?, `SegundoApellido` =  ?, `CorreoElectronico` =  ?, `genero` = ?, `nacimiento`=?, `direccion` = ?, `telefono` = ?,  `pais` = ? WHERE (`idEmpleado` = ?)',
+	sql.query('UPDATE empleado SET `img` = ? , `img2`=?, `PrimerNombre` = ?, `SegundoNombre` = ? , `PrimerApellido` =  ?, `SegundoApellido` =  ?, `CorreoElectronico` =  ?, `genero` = ?,`civil`=?,`cargo`=?,`cedula`=?,`extencion`,`sangre`=? ,`nacimiento`=?, `direccion` = ?, `telefono` = ?,  `pais` = ? WHERE (`idEmpleado` = ?)',
 	[
 		data.img,
+		data.img2,
 		data.fName,
         data.sName,
 		data.lName,
         data.sLName,
 		data.email,
 		data.gender,
+		data.position,
+		data.marital,
+		data.civ,
+		data.ext,
+		data.bloodType,
 		data.bDate,
 		data.address,
 		data.mobile,
